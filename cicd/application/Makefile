@@ -5,7 +5,7 @@ REPO    ?=huckchen0422/cicd-app
 COMMIT  =${shell git rev-parse --short HEAD}
 LOG     ="${shell git log -1 --pretty=%B}"
 VERSION ?=${COMMIT}
-TYPE    ?=KIND
+TYPE    ?=KUBEADM
 
 build-image:
 	docker build --build-arg HASH=${COMMIT} --build-arg LOG=${LOG} --tag ${SERVER}${REPO}:${VERSION} .
